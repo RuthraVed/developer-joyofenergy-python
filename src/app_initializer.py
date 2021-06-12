@@ -14,6 +14,7 @@ STANDARD_PRICE_PLAN_ID = "price-plan-2"
 NUM_METERS = 10
 NUM_READINGS_AGAINST_METER = 5
 
+
 def populate_random_electricity_readings():
     for index in range(NUM_METERS):
         smartMeterId = f"smart-meter-{index}"
@@ -22,13 +23,17 @@ def populate_random_electricity_readings():
             "electricityReadings": generate_electricity_readings(NUM_READINGS_AGAINST_METER)
         })
 
+
 def populate_price_plans():
     price_plans = [
-        PricePlan(MOST_EVIL_PRICE_PLAN_ID, DR_EVILS_DARK_ENERGY_ENERGY_SUPPLIER, 10),
+        PricePlan(MOST_EVIL_PRICE_PLAN_ID,
+                  DR_EVILS_DARK_ENERGY_ENERGY_SUPPLIER, 10),
         PricePlan(RENEWBLES_PRICE_PLAN_ID, THE_GREEN_ECO_ENERGY_SUPPLIER, 2),
-        PricePlan(STANDARD_PRICE_PLAN_ID, POWER_FOR_EVERYONE_ENERGY_SUPPLIER, 1)
+        PricePlan(STANDARD_PRICE_PLAN_ID,
+                  POWER_FOR_EVERYONE_ENERGY_SUPPLIER, 1)
     ]
     price_plan_repository.store(price_plans)
+
 
 def initialize_data():
     populate_random_electricity_readings()
