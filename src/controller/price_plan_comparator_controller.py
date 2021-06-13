@@ -30,3 +30,14 @@ def recommend(smart_meter_id, limit=None):
 
 def store_plan(plan):
     return plan
+
+
+def view_plan_details(plan_id):
+    price_plan_service = PricePlanService(readings_repository)
+    plan = price_plan_service.get_plan_details(plan_id)
+    plan_details = {
+        "pricePlanSupplier": plan.supplier,
+        "pricePlanRate": plan.unit_rate,
+        "pricePlanMultiplier": plan.peak_time_multipliers
+    }
+    return plan_details

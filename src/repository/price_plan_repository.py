@@ -6,7 +6,7 @@ class PricePlanRepository:
         self.price_plans += new_price_plans
 
     def get(self):
-        return self.price_plans.copy()
+        return self.price_plans
 
     def clear(self):
         self.price_plans = []
