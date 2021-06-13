@@ -31,6 +31,22 @@ definitions:
     type: array
     items:
       type: object
+  PricePlans:
+    type: object
+    properties:
+      pricePlanSupplier:
+        type: string
+      pricePlanRate:
+        type: number
+      pricePlanMultiplier:
+        type: array
+        items:
+          type: object
+          properties:
+            dayOfWeek:
+              type: integer
+            multiplier:
+              type: number
 
 # Paths supported by the server application
 paths:
@@ -117,3 +133,31 @@ paths:
           description: Successful recommend operation
           schema:
             $ref: '#/definitions/PricePlanRecommendations'
+  /price-plans/add-plan:
+    post:
+      operationId: controller.price_plan_comparator_controller.store_plan
+      tags:
+      - Plans
+      summary: Add new plans
+      parameters:
+      - name: plan
+        in: body
+        required: True
+        schema:
+          type: object
+          properties:
+            planId:
+              type: string
+            planDetails:
+              $ref: '#/definitions/PricePlans'
+      responses:
+        200:
+          description: Successful store operation
+          schema:
+            type: object
+            maxProperties: 2
+            properties:
+              planId:
+                type: string
+              planDetails:
+                $ref: '#/definitions/PricePlans'
