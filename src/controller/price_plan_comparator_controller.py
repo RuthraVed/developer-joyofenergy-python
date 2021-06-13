@@ -16,7 +16,7 @@ def compare(smart_meter_id):
         abort(404)
     else:
         return {
-            "bestPricePlanId": next(iter(list_of_spend_against_price_plans[0])),
+            "pricePlanId": next(iter(list_of_spend_against_price_plans[0])),
             "pricePlanComparisons": list_of_spend_against_price_plans
         }
 
