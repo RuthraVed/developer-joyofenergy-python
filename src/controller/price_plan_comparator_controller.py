@@ -2,7 +2,8 @@ from flask import abort
 
 from service.account_service import AccountService
 from service.price_plan_service import PricePlanService
-
+from repository.price_plan_repository import price_plan_repository
+from domain.price_plan import PricePlan
 from .electricity_reading_controller import repository as readings_repository
 
 
@@ -29,6 +30,14 @@ def recommend(smart_meter_id, limit=None):
 
 
 def store_plan(plan):
+    name = plan['planId']
+    print(name)
+    sub_dict = plan['planDetails']
+    new_price_plans = [
+        PricePlan(name, sub_dict.get("pricePlanSupplier"), sub_dict.get(
+            "pricePlanRate"), sub_dict.get("pricePlanMultiplier"))
+    ]
+    price_plan_repository.store(new_price_plans)
     return plan
 
 

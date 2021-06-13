@@ -137,7 +137,7 @@ paths:
     post:
       operationId: controller.price_plan_comparator_controller.store_plan
       tags:
-      - Plans
+      - Add Plan
       summary: Add new plans
       parameters:
       - name: plan
@@ -155,7 +155,6 @@ paths:
           description: Successful store operation
           schema:
             type: object
-            maxProperties: 2
             properties:
               planId:
                 type: string
