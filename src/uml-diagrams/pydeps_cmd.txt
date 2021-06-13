@@ -1,0 +1,60 @@
+> pydeps src -o src/uml-diagrams/package_relations.png -T png
+
+> pydeps --help
+usage: pydeps [-h] [--debug] [--config FILE] [--no-config] [--version] [-L LOG] [--find-package] [-v] [-o file]
+              [-T FORMAT] [--display PROGRAM] [--noshow] [--show-deps] [--show-raw-deps] [--show-dot] [--nodot]
+              [--no-output] [--show-cycles] [--debug-mf INT] [--noise-level INT] [--max-bacon INT] [--pylib]
+              [--pylib-all] [--include-missing] [-x PATTERN [PATTERN ...]] [-xx MODULE [MODULE ...]]
+              [--only MODULE_PATH [MODULE_PATH ...]] [--externals] [--reverse] [--cluster]
+              [--min-cluster-size INT] [--max-cluster-size INT] [--keep-target-cluster]
+              [--rmprefix PREFIX [PREFIX ...]] [--start-color INT]
+              fname
+
+positional arguments:
+  fname                 filename
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               turn on all the show and verbose options (mainly for debugging pydeps itself)
+  --config FILE         specify config file
+  --no-config           disable processing of config files
+  --version             print pydeps version
+  -L LOG, --log LOG     set log-level to one of CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET.
+  --find-package        tries to automatically find the name of the current package.
+  -v, --verbose         be more verbose (-vv, -vvv for more verbosity)
+  -o file               write output to 'file'
+  -T FORMAT             output format (svg|png)
+  --display PROGRAM     program to use to display the graph (png or svg file depending on the T parameter)
+  --noshow, --no-show   don't call external program to display graph
+  --show-deps           show output of dependency analysis
+  --show-raw-deps       show output of dependency analysis before removing skips
+  --show-dot            show output of dot conversion
+  --nodot, --no-dot     skip dot conversion
+  --no-output           don't create .svg/.png file, implies --no-show (-t/-o will be ignored)
+  --show-cycles         show only import cycles
+  --debug-mf INT        set the ModuleFinder.debug flag to this value
+  --noise-level INT     exclude sources or sinks with degree greater than noise-level
+  --max-bacon INT       exclude nodes that are more than n hops away (default=2, 0 -> infinite)
+  --pylib               include python std lib modules
+  --pylib-all           include python all std lib modules (incl. C modules)
+  --include-missing     include modules that are not installed (or can't be found on sys.path)
+  -x PATTERN [PATTERN ...], --exclude PATTERN [PATTERN ...]
+                        input files to skip (e.g. `foo.*`), multiple file names can be provided
+  -xx MODULE [MODULE ...], --exclude-exact MODULE [MODULE ...]
+                        same as --exclude, except requires the full match. `-xx foo.bar` will exclude foo.bar,
+                        but not foo.bar.blob
+  --only MODULE_PATH [MODULE_PATH ...]
+                        only include modules that start with MODULE_PATH
+  --externals           create list of direct external dependencies
+  --reverse             draw arrows to (instead of from) imported modules
+  --cluster             draw external dependencies as separate clusters
+  --min-cluster-size INT
+                        the minimum number of nodes a dependency must have before being clustered (default=0)
+  --max-cluster-size INT
+                        the maximum number of nodes a dependency can have before the cluster is collapsed to a
+                        single node (default=0)
+  --keep-target-cluster
+                        draw target module as a cluster
+  --rmprefix PREFIX [PREFIX ...]
+                        remove PREFIX from the displayed name of the nodes
+  --start-color INT     starting value for hue from 0 (red/default) to 360.
