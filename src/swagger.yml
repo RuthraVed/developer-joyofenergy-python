@@ -31,7 +31,7 @@ definitions:
     type: array
     items:
       type: object
-  PricePlans:
+  PricePlanDetails:
     type: object
     properties:
       pricePlanSupplier:
@@ -149,7 +149,7 @@ paths:
             planId:
               type: string
             planDetails:
-              $ref: '#/definitions/PricePlans'
+              $ref: '#/definitions/PricePlanDetails'
       responses:
         200:
           description: Successful store operation
@@ -160,4 +160,4 @@ paths:
               planId:
                 type: string
               planDetails:
-                $ref: '#/definitions/PricePlans'
+                $ref: '#/definitions/PricePlanDetails'
