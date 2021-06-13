@@ -23,7 +23,7 @@ definitions:
   PricePlanComparisons:
     type: object
     properties:
-      pricePlanId:
+      bestPricePlanId:
         type: string
       pricePlanComparisons:
         type: object
